@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="keywords" content="form, validation">
+  <meta name="author" content="Volkov Andrey">
+  <title>Валидация форм</title>
+  <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="popup">
+      <h3 class="popup__title">Новое место</h3>
+
+      <form class="popup__form popup__form_card" name="new" novalidate>
+          <input type="text" autocomplete="off" id="name-card" name="name" class="popup__input popup__input_type_name" minlength="2" maxlength="30" required placeholder="Название">
+          <span id="name-card-error" class="error"></span>
+
+          <input type="url" autocomplete="off" id="link" name="link" class="popup__input popup__input_type_link-url" minlength="2" required placeholder="Ссылка на картинку">
+          <span id="link-error" class="error"></span>
+          
+          <button type="submit" disabled class="button popup__button_disabled popup__button popup__button_add popup__button_valid" >Добавить</button>
+      </form>
+
+    </div>
+
+    <div class="popup">
+      <h3 class="popup__title">Зарегистрироваться</h3>
+
+      <form class="popup__form" name="user" novalidate>
+
+          <input type="text" autocomplete="off" id="user-name" name="user-name" class="popup__input" minlength="2" required placeholder="Имя">
+          <span id="user-name-error" class="error"></span>
+          
+          <!-- pattern скопировал с http://html5pattern.com/Passwords, он первый нашелся по запросу "pattern input html good password" требуем большую букву, маленькую и цифру :) -->
+          <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*" id="password" name="password" class="popup__input" required placeholder="Пароль">
+          <span id="password-error" class="error"></span>
+          
+          <input type="password" id="password-confirm" name="password-confirm" class="popup__input" required minlength="2" placeholder="Повторите пароль">
+          <span id="password-confirm-error" class="error"></span>
+          
+          <input autocomplete="off" type="email" id="email" name="email" class="popup__input" required placeholder="Email">
+          <span id="email-error" class="error"></span>
+          
+          <input autocomplete="off" type="tel" id="phone" name="phone" class="popup__input" placeholder="Телефон" title="Телефон в формате +7 999 999 99 99 или 8 999 999 99 99">
+          <span id="phone-error" class="error"></span>
+
+          <button type="submit" disabled class="button popup__button_disabled popup__button popup__button_save popup__button_valid">Сохранить</button>
+      </form>
+
+    </div>
+  </div>
+  <footer><p class="footer__copyright" style="color: #fff;">&copy;2020.Волков Андрей</p></footer>
+  
+  <script src="./scripts/forms.js"></script>
+</body>
+</html>
